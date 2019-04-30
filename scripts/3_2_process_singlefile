@@ -1,0 +1,25 @@
+#! /bin/bash
+
+
+# delete the existing output directory with all its files
+
+#rm -R /OSM/CBR/AF_DATASCHOOL/output/ver078 
+
+
+
+# create a new empty output directory
+
+#mkdir -p /OSM/CBR/AF_DATASCHOOL/output/ver078 
+
+
+
+# load the fastqc module so we can run it.
+
+module load fastqc
+
+
+
+# run the fastqc command line with empty output directory specified as ouput directory
+
+fastqc /OSM/CBR/AF_DATASCHOOL/input/2019-04-12_Transcritome/CA73YANXX_8_161220_BPO--001_Other_TAAGGCGA-TATCCTCT_R_161128_SHADIL_LIB2500_M002_R1.fastq.gz -o /OSM/CBR/AF_DATASCHOOL/output/ver078/
+
