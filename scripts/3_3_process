@@ -1,0 +1,33 @@
+#!/bin/bash -l
+#SBATCH --job-name=shaunjob
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=1gb
+#SBATCH --time=1:20:00
+
+##SBATCH --mail-type=ALL
+##SBATCH --mail-user=shaun.verrall@csiro.au
+
+
+# delete the existing output directory with all its files
+#rm -R /OSM/CBR/AF_DATASCHOOL/output/ver078 
+
+
+
+# load the fastqc module so we can run it.
+module load fastqc
+
+
+inputdir=/OSM/CBR/AF_DATASCHOOL/input/2019-04-12_Transcritome/
+outputdir=/OSM/CBR/AF_DATASCHOOL/output/ver078/
+
+# change to the directory that has the input files
+cd $inputdir
+
+
+for filename in *.fastq.gz
+do
+   sbatch fastqc $filename -o $outputdir
+done
+
+
