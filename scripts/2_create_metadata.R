@@ -1,4 +1,4 @@
-library(tidyverse)
+library("tidyverse")
 # create path
 dpath <- '/OSM/CBR/AF_DATASCHOOL/input/2019-04-12_Transcritome/'
 
@@ -25,5 +25,10 @@ md <- left_join(flist4,sampleinfo,by=c('Sample'='Sample/Name'))
 md <- md[c(1,2,4,6,7,9,10)]
 
 # Wrtie txt file with 'tab' 
-write_csv(md,'/home/yu055/dsBigData/2_Metadata/metadata.csv')
-write.table(md,'/home/yu055/dsBigData/2_Metadata/metadata.txt',sep = '\t')
+outpath <- 'OSM/CBR/AF_DATASCHOOL/output/ver078'
+write_csv(md,outpath+'/metadata.csv')
+write.table(md,outpath+'/metadata.txt',sep = '\t')
+
+#write_csv(md,'/home/yu055/dsBigData/2_Metadata/metadata.csv')
+#write.table(md,'/home/yu055/dsBigData/2_Metadata/metadata.txt',sep = '\t')
+
